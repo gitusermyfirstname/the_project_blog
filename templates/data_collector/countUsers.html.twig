@@ -1,0 +1,37 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+   {% set icon %} 
+           <img src="{{ asset('data_collector/logo.png') }}" alt=""/>
+           <span class="sf-toolbar-value">{{ collector.countUsers }}</span>
+   {% endset %}
+
+   {{ include('@WebProfiler/Profiler/toolbar_item.html.twig') }}
+{% endblock %}
+
+{% block menu %}
+   <span class="label">
+       <span class="icon"> <img src="{{ asset('data_collector/logo.png') }}" alt=""/> </span>
+       <strong>CountUsers</strong>
+   </span>
+{% endblock %}
+
+{% block panel %}
+   <div class="row">
+       <div class="col-md-6">
+           <h2>User</h2>
+           <table>
+               <tr>
+                   <th>Id</th>
+                   <th>Email</th>
+               </tr>
+               {% for user in collector.users %}
+                   <tr>
+                       <td>{{ user.id }}</td>
+                       <td>{{ user.email }}</td>
+                   </tr>
+               {% endfor %}
+           </table>
+       </div>
+   </div>
+{% endblock %}

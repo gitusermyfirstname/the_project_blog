@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; text-align: center; display: flex; justify-content: center; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+    {% if app.user %}
+        <div class="example-wrapper">
+            <h1>Hello {{ app.user.userIdentifier }} ! Vous êtes connecté ✅</h1>
+        </div>
+    {% endif %}
+
+    {# {% if app.user %}
+        <h1>Hello {{ app.user.getEmail() }} ! Vous êtes connecté✅</h1>
+    {% endif %} #}
+
+    <a href="{{ path('app_logout') }}" class="example-wrapper"><button class="example-wrapper">Se déconnecter</button></a>
+
+    {# <a href="/login"></a> #}
+
+{% endblock %}

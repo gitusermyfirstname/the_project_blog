@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonjour{% endblock %}
+
+
+{% block body %}
+
+    <h1>Bonjour {{ username }} , bienvenue sur notre plateforme !</h1>
+    <p>Nous allons vous répondre le plus rapidement possible sur {{ email.subject }} </p>
+    {# <img src="{{ email.image('@images/logo.png' )}}" alt=""> #}
+{% endblock %}

@@ -22,3 +22,24 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\DataCollector\UserListCollector:
+        arguments: [ '@App\Repository\UserRepository' ]
+        tags:
+            -
+                name:     data_collector
+                template: 'data_collector/countUsers.html.twig'
+                id:       'toolbar'
+
+    # config/services.yaml:
+    App\EventListener\AjaxListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
+
+    App\EventSubscriber\LogSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    # App\EventListener\MyDoctrineEventListener:
+    #     tags:
+    #         - { name: doctrine.event_listener, event: prePersist }
